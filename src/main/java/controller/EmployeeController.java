@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Employee;
+import model.EmployeeDAO;
 
 public class EmployeeController {
 
@@ -47,12 +48,15 @@ public class EmployeeController {
     }
 
     public void initialize(){
-        Employee e1 = new Employee((long) 1,"A", "A", 3222.0);
-        Employee e2 = new Employee((long) 2,"B", "B", 33333.0);
-        Employee e3 = new Employee((long) 3,"C", "C", 5001.0);
-        employees.add(e1);
-        employees.add(e2);
-        employees.add(e3);
+//        Employee e1 = new Employee((long) 1,"A", "A", 3222.0);
+//        Employee e2 = new Employee((long) 2,"B", "B", 33333.0);
+//        Employee e3 = new Employee((long) 3,"C", "C", 5001.0);
+//        employees.add(e1);
+//        employees.add(e2);
+//        employees.add(e3);
+
+        EmployeeDAOImpl employeeDAO = new EmployeeDAOImpl();
+        employees = (ObservableList<Employee>) employeeDAO.findAll();
         // wypełnienie wartości w tabelce
         addDataToTable();
 

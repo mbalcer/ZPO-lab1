@@ -1,15 +1,14 @@
 package controller;
 
+import dao.EmployeeDAOImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Employee;
-import model.EmployeeDAO;
 
 public class EmployeeController {
 
@@ -33,10 +32,9 @@ public class EmployeeController {
 
     private ObservableList<Employee> employees = FXCollections.observableArrayList();
 
-    @FXML
-    void exitAction(ActionEvent event) {
-        System.exit(0);
-    }
+
+
+
 
     private void addDataToTable(){
         // konfiguracja wartości z modelu do tabeli

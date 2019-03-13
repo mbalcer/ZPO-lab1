@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeController">
-   <children>
-      <MenuBar layoutY="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem fx:id="mi_exit" mnemonicParsing="false" onAction="#exitAction" text="Close" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Action">
-              <items>
-                <MenuItem fx:id="mi_add" mnemonicParsing="false" text="Add Employee" />
-                  <MenuItem fx:id="mi_edit" mnemonicParsing="false" text="Edit Data" />
-                  <MenuItem fx:id="mi_delete" mnemonicParsing="false" text="Delete Employee" />
-              </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-      <TableView fx:id="tbl_employee" layoutX="10.0" layoutY="32.0" prefHeight="360.0" prefWidth="520.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+
+<BorderPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeController">
+   <center>
+      <TableView fx:id="tbl_employee" prefHeight="360.0" prefWidth="520.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="col_id" prefWidth="128.0" text="ID" />
           <TableColumn fx:id="col_name" prefWidth="130.0" text="NAME" />
@@ -33,5 +15,5 @@
             <TableColumn fx:id="col_salary" prefWidth="130.0" text="SALARY" />
         </columns>
       </TableView>
-   </children>
-</AnchorPane>
+   </center>
+</BorderPane>

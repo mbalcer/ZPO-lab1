@@ -1,9 +1,9 @@
-package controller;
+package dao;
 
+import database.SQLConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Employee;
-import model.EmployeeDAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

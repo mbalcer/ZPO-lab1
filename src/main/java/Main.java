@@ -2,15 +2,19 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/view/employeeView.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/appView.fxml"));
+        BorderPane borderPane = loader.load();
+        Scene scene = new Scene(borderPane);
         primaryStage.setTitle("Admin panel");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

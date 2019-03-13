@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -15,42 +16,54 @@
          <children>
             <Label fx:id="lbl_name" text="Name:" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="tf_name" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </TextField>
             <Label fx:id="lbl_email" text="Email:" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="tf_email" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </TextField>
             <Label fx:id="lbl_salary" text="Salary:" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="tf_salary" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <Button fx:id="btn_add" mnemonicParsing="false" prefWidth="270.0" text="Add Employee" VBox.vgrow="NEVER">
+            <HBox>
+               <children>
+                  <Button fx:id="btn_back" mnemonicParsing="false" onAction="#backToMainView" text="Back">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btn_add" mnemonicParsing="false" onAction="#addEmployee" text="Add Employee">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
-            </Button>
-            <Label fx:id="lbl_info" alignment="CENTER" prefWidth="270.0" textAlignment="CENTER" textFill="#ff9500" VBox.vgrow="NEVER">
+            </HBox>
+            <Label fx:id="lbl_info" alignment="CENTER" text="INFO" textAlignment="CENTER" textFill="#ff9500" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
                <font>
                   <Font size="14.0" />

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -11,7 +12,17 @@ import java.io.IOException;
 public class MainController {
 
     @FXML
-    private BorderPane mainBorderPane;
+    private BorderPane centerBorderPane;
+
+    @FXML
+    private Button btn_back;
+
+    private void setVisibleBtnBack(String activeElement) {
+        if(activeElement=="/view/employeeView.fxml")
+            btn_back.setVisible(false);
+        else
+            btn_back.setVisible(true);
+    }
 
     private void setCenterBorderPane(String viewPath) {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(viewPath));
@@ -21,7 +32,8 @@ public class MainController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mainBorderPane.setCenter(parent);
+        setVisibleBtnBack(viewPath);
+        centerBorderPane.setCenter(parent);
     }
 
     @FXML
@@ -46,5 +58,10 @@ public class MainController {
     @FXML
     public void deleteEmployee(ActionEvent event) {
         setCenterBorderPane("/view/deleteView.fxml");
+    }
+
+    @FXML
+    public void backToMainView() {
+        setCenterBorderPane("/view/employeeView.fxml");
     }
 }

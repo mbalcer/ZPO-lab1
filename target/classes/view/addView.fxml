@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane prefHeight="360.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddController">
    <center>
       <VBox prefHeight="360.0" prefWidth="270.0" BorderPane.alignment="CENTER">
@@ -21,7 +20,7 @@
             </Label>
             <TextField fx:id="tf_name" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
+                  <Insets bottom="15.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </TextField>
             <Label fx:id="lbl_email" text="Email:" VBox.vgrow="NEVER">
@@ -31,7 +30,7 @@
             </Label>
             <TextField fx:id="tf_email" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
+                  <Insets bottom="15.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </TextField>
             <Label fx:id="lbl_salary" text="Salary:" VBox.vgrow="NEVER">
@@ -41,16 +40,11 @@
             </Label>
             <TextField fx:id="tf_salary" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
+                  <Insets bottom="15.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </TextField>
             <HBox>
                <children>
-                  <Button fx:id="btn_back" mnemonicParsing="false" onAction="#backToMainView" text="Back">
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button fx:id="btn_add" mnemonicParsing="false" onAction="#addEmployee" text="Add Employee">
                      <HBox.margin>
                         <Insets right="20.0" />
@@ -61,7 +55,7 @@
                   <Insets left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <Label fx:id="lbl_info" alignment="CENTER" text="INFO" textAlignment="CENTER" textFill="#ff9500" VBox.vgrow="NEVER">
+            <Label fx:id="lbl_info" alignment="CENTER" textAlignment="CENTER" textFill="#ff9500" VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets left="50.0" right="50.0" top="10.0" />
                </VBox.margin>

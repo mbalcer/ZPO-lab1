@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import model.Employee;
+import sun.applet.Main;
 
 import java.util.List;
 import java.util.Optional;
@@ -42,9 +43,5 @@ public class DeleteController {
 
         employeeDAO.delete(optionalEmployee.get());
         lbl_info.setText("The employee was removed correctly");
-    }
-
-    @FXML
-    public void backToMainView() {
     }
 }

@@ -25,8 +25,7 @@ public class DeleteController {
     @FXML
     private Label lbl_info;
 
-    @FXML
-    public void initialize() {
+    private void fillComboBox() {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         ObservableList<String> nameEmployees = FXCollections.observableArrayList();
         List<Employee> employees = employeeDAO.findAll();
@@ -36,12 +35,22 @@ public class DeleteController {
     }
 
     @FXML
+    public void initialize() {
+        fillComboBox();
+    }
+
+    @FXML
     public void deleteEmployee() {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
-        String selectedEmployee = cb_employee.getValue();
-        Optional<Employee> optionalEmployee = employeeDAO.findByName(selectedEmployee);
+        try {
+            String selectedEmployee = cb_employee.getValue();
+            Optional<Employee> optionalEmployee = employeeDAO.findByName(selectedEmployee);
 
-        employeeDAO.delete(optionalEmployee.get());
-        lbl_info.setText("The employee was removed correctly");
+            employeeDAO.delete(optionalEmployee.get());
+            fillComboBox();
+            lbl_info.setText("The employee was removed correctly");
+        } catch (NullPointerException e) {
+            return;
+        }
     }
 }

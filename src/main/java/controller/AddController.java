@@ -6,10 +6,10 @@ import javafx.fxml.FXML;
 public class AddController {
 
     @FXML
-    public void backToMainView(ActionEvent event) {
+    public void backToMainView() {
     }
 
     @FXML
-    public void addEmployee(ActionEvent event) {
+    public void addEmployee() {
     }
 }

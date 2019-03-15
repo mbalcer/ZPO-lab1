@@ -58,7 +58,7 @@
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
+                  <Insets left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
             </HBox>
             <Label fx:id="lbl_info" alignment="CENTER" text="INFO" textAlignment="CENTER" textFill="#ff9500" VBox.vgrow="NEVER">

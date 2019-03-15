@@ -45,5 +45,6 @@ public class MainController {
 
     @FXML
     public void deleteEmployee(ActionEvent event) {
+        setCenterBorderPane("/view/deleteView.fxml");
     }
 }

@@ -87,7 +87,24 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
     @Override
     public void save(Employee employee) {
+        Optional<Employee> optionalEmployee = findByName(employee.getName());
+        String query = null;
+        if(optionalEmployee==null) {
+            query = "INSERT INTO Employee(name, email, salary) VALUES ('"+
+                employee.getName()+"', '"+ employee.getEmail()+"', "+employee.getSalary()+")";
+        } else {
+            query = "UPDATE Employee SET name='"+employee.getName()+"', email='"+employee.getEmail()+
+                    "', salary="+employee.getSalary()+" WHERE id="+optionalEmployee.get().getId();
+        }
 
+        SQLConnection conn = new SQLConnection();
+        PreparedStatement preparedStmt = null;
+        try {
+            preparedStmt = conn.getConnect().prepareStatement(query);
+            preparedStmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

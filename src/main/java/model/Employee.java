@@ -13,6 +13,12 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Employee(String name, String email, Double salary) {
+        this.name = name;
+        this.email = email;
+        this.salary = salary;
+    }
+
     public Long getId() {
         return id;
     }

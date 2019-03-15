@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 
@@ -15,13 +16,16 @@ public class MainController {
     private BorderPane centerBorderPane;
 
     @FXML
+    private HBox hbox_back;
+
+    @FXML
     private Button btn_back;
 
     private void setVisibleBtnBack(String activeElement) {
         if(activeElement=="/view/employeeView.fxml")
-            btn_back.setVisible(false);
+            centerBorderPane.setTop(null);
         else
-            btn_back.setVisible(true);
+            centerBorderPane.setTop(hbox_back);
     }
 
     private void setCenterBorderPane(String viewPath) {

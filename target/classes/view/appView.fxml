@@ -30,7 +30,7 @@
    <center>
       <BorderPane fx:id="centerBorderPane" prefHeight="400.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <top>
-            <HBox BorderPane.alignment="CENTER">
+            <HBox fx:id="hbox_back" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="btn_back" mnemonicParsing="false" onAction="#backToMainView" text="Back" />
                </children>

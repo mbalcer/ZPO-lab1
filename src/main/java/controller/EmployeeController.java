@@ -4,16 +4,12 @@ import dao.EmployeeDAOImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Employee;
 
 public class EmployeeController {
-
-    @FXML
-    private MenuItem mi_exit;
 
     @FXML
     private TableView<Employee> tbl_employee;
@@ -33,32 +29,17 @@ public class EmployeeController {
     private ObservableList<Employee> employees = FXCollections.observableArrayList();
 
 
-
-
-
     private void addDataToTable(){
-        // konfiguracja wartości z modelu do tabeli
-        col_id.setCellValueFactory(new PropertyValueFactory<Employee, Long>("id"));
-        col_name.setCellValueFactory(new PropertyValueFactory<Employee, String>("name"));
-        col_email.setCellValueFactory(new PropertyValueFactory<Employee, String>("email"));
-        col_salary.setCellValueFactory(new PropertyValueFactory<Employee, Double>("salary"));
+        col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        col_salary.setCellValueFactory(new PropertyValueFactory<>("salary"));
         tbl_employee.setItems(employees);
     }
 
     public void initialize(){
-//        Employee e1 = new Employee((long) 1,"A", "A", 3222.0);
-//        Employee e2 = new Employee((long) 2,"B", "B", 33333.0);
-//        Employee e3 = new Employee((long) 3,"C", "C", 5001.0);
-//        employees.add(e1);
-//        employees.add(e2);
-//        employees.add(e3);
-
         EmployeeDAOImpl employeeDAO = new EmployeeDAOImpl();
         employees = (ObservableList<Employee>) employeeDAO.findAll();
-        // wypełnienie wartości w tabelce
         addDataToTable();
-
-
     }
-
 }

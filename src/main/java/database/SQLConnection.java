@@ -26,6 +26,15 @@ public class SQLConnection {
         }
     }
 
+    public void makeQueryToDatabase(String query) {
+        try {
+            stmt = connect.prepareStatement(query);
+            stmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public ResultSet makeQuery(String query) {
         ResultSet rs = null;
         try {
@@ -37,12 +46,7 @@ public class SQLConnection {
         return rs;
     }
 
-    public void closeConnect(ResultSet rs) {
-        try {
-            rs.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public void closeConnect() {
         try {
             this.stmt.close();
         } catch (SQLException e) {
@@ -53,7 +57,15 @@ public class SQLConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
+    public void closeConnect(ResultSet rs) {
+        try {
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        closeConnect();
     }
 
     public Connection getConnect() {

@@ -74,15 +74,8 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     public void delete(Employee employee) {
         String query = "DELETE FROM Employee WHERE id="+employee.getId();
         SQLConnection conn = new SQLConnection();
-        PreparedStatement preparedStmt = null;
-
-        try {
-            preparedStmt = conn.getConnect().prepareStatement(query);
-            preparedStmt.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        conn.makeQueryToDatabase(query);
+        conn.closeConnect();
     }
 
     @Override
@@ -98,13 +91,8 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         }
 
         SQLConnection conn = new SQLConnection();
-        PreparedStatement preparedStmt = null;
-        try {
-            preparedStmt = conn.getConnect().prepareStatement(query);
-            preparedStmt.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        conn.makeQueryToDatabase(query);
+        conn.closeConnect();
     }
 
 }

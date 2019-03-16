@@ -21,12 +21,12 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </ComboBox>
-                  <Button fx:id="btn_edit" mnemonicParsing="false" text="Edit">
+                  <Button fx:id="btn_edit" mnemonicParsing="false" onAction="#editEmployee" text="Edit">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btn_delete" mnemonicParsing="false" text="Delete">
+                  <Button fx:id="btn_delete" mnemonicParsing="false" onAction="#deleteEmployee" text="Delete">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>

@@ -15,7 +15,29 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
     @Override
     public Optional findOne(Integer id) {
-        return Optional.empty();
+        Optional<Employee> optionalEmployee = null;
+        String query = "SELECT * FROM Employee WHERE id="+id;
+        SQLConnection conn = new SQLConnection();
+        ResultSet rs = conn.makeQuery(query);
+
+        try {
+            if(rs.next()) {
+                Long idDb = rs.getLong("id");
+                String nameDb = rs.getString("name");
+                String emailDb = rs.getString("email");
+                Double salaryDb = rs.getDouble("salary");
+
+
+                Employee employee = new Employee(idDb, nameDb, emailDb, salaryDb);
+                optionalEmployee = Optional.of(employee);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conn.closeConnect(rs);
+        }
+
+        return optionalEmployee;
     }
 
     @Override

@@ -9,7 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Employee;
 
-public class EmployeeController {
+public class TableController {
 
     @FXML
     private TableView<Employee> tbl_employee;

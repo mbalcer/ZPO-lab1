@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TableController">
+   <center>
+      <TableView fx:id="tbl_employee" prefHeight="360.0" prefWidth="520.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="128.0" text="ID" />
+          <TableColumn fx:id="col_name" prefWidth="130.0" text="NAME" />
+            <TableColumn fx:id="col_email" prefWidth="130.0" text="EMAIL" />
+            <TableColumn fx:id="col_salary" prefWidth="130.0" text="SALARY" />
+        </columns>
+      </TableView>
+   </center>
+   <padding>
+      <Insets left="15.0" right="15.0" top="10.0" />
+   </padding>
+</BorderPane>

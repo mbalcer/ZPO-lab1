@@ -17,18 +17,12 @@
                         <MenuItem fx:id="mi_exit" mnemonicParsing="false" onAction="#exitAction" text="Close" />
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Action">
-                    <items>
-                        <MenuItem fx:id="mi_add" mnemonicParsing="false" onAction="#addEmployee" text="Add Employee" />
-                        <MenuItem fx:id="mi_edit" mnemonicParsing="false" onAction="#editEmployee" text="Edit Data" />
-                        <MenuItem fx:id="mi_delete" mnemonicParsing="false" onAction="#deleteEmployee" text="Delete Employee" />
-                    </items>
-                </Menu>
+            <Menu mnemonicParsing="false" onHiding="#onActionEmployee" onShowing="#onActionEmployee" text="Action" />
             </menus>
         </MenuBar>
    </top>
    <center>
-      <BorderPane fx:id="centerBorderPane" prefHeight="400.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="centerBorderPane" prefHeight="500.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <top>
             <HBox fx:id="hbox_back" BorderPane.alignment="CENTER">
                <children>

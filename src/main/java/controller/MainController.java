@@ -22,7 +22,7 @@ public class MainController {
     private Button btn_back;
 
     private void setVisibleBtnBack(String activeElement) {
-        if(activeElement=="/view/employeeView.fxml")
+        if(activeElement== "/view/tableView.fxml")
             centerBorderPane.setTop(null);
         else
             centerBorderPane.setTop(hbox_back);
@@ -42,30 +42,21 @@ public class MainController {
 
     @FXML
     private void initialize() {
-        setCenterBorderPane("/view/employeeView.fxml");
+        setCenterBorderPane("/view/tableView.fxml");
     }
 
     @FXML
-    void exitAction(ActionEvent event) {
+    void exitAction() {
         System.exit(0);
     }
 
     @FXML
-    public void addEmployee(ActionEvent event) {
-        setCenterBorderPane("/view/addView.fxml");
-    }
-
-    @FXML
-    public void editEmployee(ActionEvent event) {
-    }
-
-    @FXML
-    public void deleteEmployee(ActionEvent event) {
-        setCenterBorderPane("/view/deleteView.fxml");
-    }
-
-    @FXML
     public void backToMainView() {
+        setCenterBorderPane("/view/tableView.fxml");
+    }
+
+    @FXML
+    public void onActionEmployee(ActionEvent event) {
         setCenterBorderPane("/view/employeeView.fxml");
     }
 }

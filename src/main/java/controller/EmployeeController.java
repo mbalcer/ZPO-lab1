@@ -76,6 +76,7 @@ public class EmployeeController {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         employeeDAO.save(newEmployee);
         clearTextField();
+        fillComboBox();
         lbl_info.setText("New employee has been added to the database");
     }
 
@@ -96,6 +97,12 @@ public class EmployeeController {
 
     @FXML
     void editEmployee() {
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+        String selectedEmployee = cb_employee.getValue();
+        Optional<Employee> optionalEmployee = employeeDAO.findByName(selectedEmployee);
 
+        tf_name.setText(optionalEmployee.get().getName());
+        tf_email.setText(optionalEmployee.get().getEmail());
+        tf_salary.setText(String.valueOf(optionalEmployee.get().getSalary()));
     }
 }

@@ -69,15 +69,26 @@ public class EmployeeController {
     @FXML
     public void addEmployee() {
         String name = tf_name.getText();
+        if (name.equals("")) {
+            lbl_info.setText("Enter the employee's name");
+            return;
+        }
         String email = tf_email.getText();
-        Double salary = Double.parseDouble(tf_salary.getText());
-        Employee newEmployee = new Employee(name,email,salary);
+        Double salary = null;
+        try {
+            salary = Double.parseDouble(tf_salary.getText());
+        } catch (NumberFormatException e) {
+            lbl_info.setText("The salary must be the number");
+            return;
+        }
+        Employee newEmployee = new Employee(name, email, salary);
 
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         employeeDAO.save(newEmployee);
         clearTextField();
         fillComboBox();
         lbl_info.setText("New employee has been added to the database");
+
     }
 
     @FXML

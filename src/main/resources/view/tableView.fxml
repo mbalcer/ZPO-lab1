@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TableController">
    <center>
@@ -19,4 +22,19 @@
    <padding>
       <Insets left="15.0" right="15.0" top="10.0" />
    </padding>
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+         <children>
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="71.0" text="Search name:">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tf_search" onKeyReleased="#searchEmployee" prefHeight="26.0" prefWidth="440.0" />
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

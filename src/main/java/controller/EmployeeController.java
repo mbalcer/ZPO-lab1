@@ -26,6 +26,9 @@ public class EmployeeController {
     private Button btn_delete;
 
     @FXML
+    private Button btn_add;
+
+    @FXML
     private Label lbl_name;
 
     @FXML
@@ -66,29 +69,38 @@ public class EmployeeController {
         fillComboBox();
     }
 
+    private boolean checkData(String name, String salary) {
+        if (name.equals("")) {
+            lbl_info.setText("Enter the employee's name");
+            return false;
+        }
+        try {
+            Double.parseDouble(tf_salary.getText());
+        } catch (NumberFormatException e) {
+            lbl_info.setText("The salary must be the number");
+            return false;
+        }
+
+        return true;
+    }
+
     @FXML
     public void addEmployee() {
         String name = tf_name.getText();
-        if (name.equals("")) {
-            lbl_info.setText("Enter the employee's name");
-            return;
-        }
         String email = tf_email.getText();
-        Double salary = null;
-        try {
-            salary = Double.parseDouble(tf_salary.getText());
-        } catch (NumberFormatException e) {
-            lbl_info.setText("The salary must be the number");
-            return;
+        String salaryString = tf_salary.getText();
+
+        if (checkData(name, salaryString)) {
+            Double salary = Double.parseDouble(salaryString);
+
+            Employee newEmployee = new Employee(name, email, salary);
+
+            EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+            employeeDAO.save(newEmployee);
+            clearTextField();
+            fillComboBox();
+            lbl_info.setText("New employee has been added to the database");
         }
-        Employee newEmployee = new Employee(name, email, salary);
-
-        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
-        employeeDAO.save(newEmployee);
-        clearTextField();
-        fillComboBox();
-        lbl_info.setText("New employee has been added to the database");
-
     }
 
     @FXML

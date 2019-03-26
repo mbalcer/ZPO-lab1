@@ -53,6 +53,21 @@ public class TableController {
     }
 
     public void searchEmployee() {
+        String valueEntered = tf_search.getText();
 
+        EmployeeDAOImpl employeeDAO = new EmployeeDAOImpl();
+        if (valueEntered.isEmpty()) {
+            employees = (ObservableList<Employee>) employeeDAO.findAll();
+        }
+        else {
+            String regex = ".*"+valueEntered+".*";
+            List<Employee> newList = employeeDAO.findAll()
+                    .stream()
+                    .filter(employee -> employee.getName().matches(regex))
+                    .collect(Collectors.toList());
+
+            employees.setAll(newList);
+        }
+        addDataToTable();
     }
 }

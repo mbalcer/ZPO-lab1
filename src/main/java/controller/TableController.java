@@ -63,7 +63,7 @@ public class TableController {
             String regex = ".*"+valueEntered+".*";
             List<Employee> newList = employeeDAO.findAll()
                     .stream()
-                    .filter(employee -> employee.getName().matches(regex))
+                    .filter(employee -> employee.getName().toLowerCase().matches(regex))
                     .collect(Collectors.toList());
 
             employees.setAll(newList);

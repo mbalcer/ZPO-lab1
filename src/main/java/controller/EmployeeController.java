@@ -59,7 +59,7 @@ public class EmployeeController {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         ObservableList<String> nameEmployees = FXCollections.observableArrayList();
         List<Employee> employees = employeeDAO.findAll();
-        employees.forEach(employee -> nameEmployees.add(employee.getName()));
+        employees.forEach(employee -> nameEmployees.add(employee.getId()+" - "+employee.getName()));
 
         cb_employee.setItems(nameEmployees);
     }
@@ -122,7 +122,8 @@ public class EmployeeController {
     void editEmployee() {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         String selectedEmployee = cb_employee.getValue();
-        Optional<Employee> optionalEmployee = employeeDAO.findByName(selectedEmployee);
+        Integer selectedId = Integer.parseInt(selectedEmployee.split(" - ")[0]);
+        Optional<Employee> optionalEmployee = employeeDAO.findOne(selectedId);
 
         tf_name.setText(optionalEmployee.get().getName());
         tf_email.setText(optionalEmployee.get().getEmail());

@@ -17,7 +17,11 @@
                         <MenuItem fx:id="mi_exit" mnemonicParsing="false" onAction="#exitAction" text="Close" />
                     </items>
                 </Menu>
-            <Menu mnemonicParsing="false" onHiding="#onActionEmployee" onShowing="#onActionEmployee" text="Action" />
+            <Menu mnemonicParsing="false" text="Action">
+               <items>
+                  <MenuItem fx:id="mi_employee" mnemonicParsing="false" onAction="#onActionEmployee" text="Employee" />
+               </items>
+            </Menu>
             </menus>
         </MenuBar>
    </top>

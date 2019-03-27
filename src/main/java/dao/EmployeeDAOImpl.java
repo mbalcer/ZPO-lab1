@@ -13,16 +13,14 @@ import java.util.Optional;
 
 public class EmployeeDAOImpl implements EmployeeDAO{
 
-    @Override
-    public Optional findOne(Integer id) {
+    private Optional<Employee> findEmployee(String query) {
         Optional<Employee> optionalEmployee = null;
-        String query = "SELECT * FROM Employee WHERE id="+id;
         SQLConnection conn = new SQLConnection();
         ResultSet rs = conn.makeQuery(query);
 
         try {
             if(rs.next()) {
-                Long idDb = rs.getLong("id");
+                Integer idDb = rs.getInt("id");
                 String nameDb = rs.getString("name");
                 String emailDb = rs.getString("email");
                 Double salaryDb = rs.getDouble("salary");
@@ -41,6 +39,12 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     }
 
     @Override
+    public Optional findOne(Integer id) {
+        String query = "SELECT * FROM Employee WHERE id="+id;
+        return findEmployee(query);
+    }
+
+    @Override
     public List<Employee> findAll() {
         List<Employee> data = FXCollections.observableArrayList();
         String query = "SELECT * FROM Employee";
@@ -49,7 +53,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
         try {
             while (rs.next()) {
-                Long id = rs.getLong("id");
+                Integer id = rs.getInt("id");
                 String name = rs.getString("name");
                 String email = rs.getString("email");
                 Double salary = rs.getDouble("salary");
@@ -67,29 +71,8 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
     @Override
     public Optional findByName(String name) {
-        Optional<Employee> optionalEmployee = null;
         String query = "SELECT * FROM Employee WHERE name='"+name+"'";
-        SQLConnection conn = new SQLConnection();
-        ResultSet rs = conn.makeQuery(query);
-
-        try {
-            if(rs.next()) {
-                Long idDb = rs.getLong("id");
-                String nameDb = rs.getString("name");
-                String emailDb = rs.getString("email");
-                Double salaryDb = rs.getDouble("salary");
-
-
-                Employee employee = new Employee(idDb, nameDb, emailDb, salaryDb);
-                optionalEmployee = Optional.of(employee);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            conn.closeConnect(rs);
-        }
-
-        return optionalEmployee;
+        return findEmployee(query);
     }
 
     @Override

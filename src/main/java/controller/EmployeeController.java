@@ -108,7 +108,8 @@ public class EmployeeController {
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
         try {
             String selectedEmployee = cb_employee.getValue();
-            Optional<Employee> optionalEmployee = employeeDAO.findByName(selectedEmployee);
+            Integer selectedId = Integer.parseInt(selectedEmployee.split(" - ")[0]);
+            Optional<Employee> optionalEmployee = employeeDAO.findOne(selectedId);
 
             employeeDAO.delete(optionalEmployee.get());
             fillComboBox();

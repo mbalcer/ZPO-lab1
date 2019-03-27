@@ -1,12 +1,12 @@
 package model;
 
 public class Employee {
-    private Long id;
+    private Integer id;
     private String name;
     private String email;
     private Double salary;
 
-    public Employee(Long id, String name, String email, Double salary) {
+    public Employee(Integer id, String name, String email, Double salary) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -19,11 +19,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

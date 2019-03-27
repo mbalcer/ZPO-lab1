@@ -128,5 +128,24 @@ public class EmployeeController {
         tf_name.setText(optionalEmployee.get().getName());
         tf_email.setText(optionalEmployee.get().getEmail());
         tf_salary.setText(String.valueOf(optionalEmployee.get().getSalary()));
+
+        btn_add.setText("Edit Employee");
+        btn_add.setOnAction(event -> {
+            if (checkData(tf_name.getText(), tf_salary.getText())) {
+                String name = tf_name.getText();
+                String email = tf_email.getText();
+                Double salary = Double.parseDouble(tf_salary.getText());
+
+                Employee editEmployee = new Employee(selectedId, name, email, salary);
+
+                employeeDAO.save(editEmployee);
+                clearTextField();
+                fillComboBox();
+                lbl_info.setText("The employee number "+selectedId+" has been edited");
+            } else
+                clearTextField();
+
+            btn_add.setText("Add Employee");
+        });
     }
 }
